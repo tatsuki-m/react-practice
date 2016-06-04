@@ -27,7 +27,7 @@
         <input type="submit" value="SENT">
       <% end %>
     <% end %>
-    <div class="comments">   
+    <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
@@ -38,5 +38,8 @@
         <% end %>
       <% end %>
     </div>
+    </div>
+  <div class="container">
+    <%= react_component('CommentBox', url: "/api/v1/tweets/#{@tweet.id}/comments") %>
   </div>
 </div>

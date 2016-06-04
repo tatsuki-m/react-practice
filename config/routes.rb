@@ -5,4 +5,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :users, only: [:show]
+  namespace :api, format: 'json' do
+    namespace :v1 do
+      resources :tweets do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
 end

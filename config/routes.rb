@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   namespace :api, format: 'json' do
     namespace :v1 do
-      resources :tweets do
+      resources :tweets, only: [:index, :create] do
         resources :comments, only: [:index, :create]
       end
     end
